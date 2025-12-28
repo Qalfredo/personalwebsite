@@ -33,8 +33,10 @@ jobs:
 
       - name: Build
         env:
-          # Using '/' for custom domain (alfredoquintana.com)
-          VITE_BASE_PATH: /
+          # Using repository name for GitHub Pages subdomain
+          # Once custom domain (alfredoquintana.com) is configured and working,
+          # change this back to '/' for custom domain
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
 
       - name: Setup Pages

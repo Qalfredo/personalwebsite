@@ -126,8 +126,24 @@ The `CNAME` file has been created in the `public/` folder with `alfredoquintana.
 
 **Note:** In GoDaddy, if the Name field shows "@" or is empty, that means it's for the root domain (alfredoquintana.com)
 
-### 3.5 Workflow Updated ✅
-The GitHub Actions workflow has been updated to use base path `/` for custom domain (alfredoquintana.com)
+### 3.5 Workflow Configuration
+
+**Current Setup:** The workflow is configured to work on the GitHub Pages subdomain (`qalfredo.github.io/personalwebsite/`) for testing purposes.
+
+**After Custom Domain is Configured:**
+Once your custom domain `alfredoquintana.com` is set up and working, you need to update the workflow:
+
+1. Edit `.github/workflows/deploy.yml`
+2. Change line 38 from:
+   ```yaml
+   VITE_BASE_PATH: /${{ github.event.repository.name }}/
+   ```
+   to:
+   ```yaml
+   VITE_BASE_PATH: /
+   ```
+3. Commit and push the change
+4. The site will then work properly on your custom domain
 
 ### 3.6 Wait for DNS Propagation
 - DNS changes can take 24-48 hours to propagate
@@ -145,6 +161,17 @@ Once DNS is configured and the domain is verified:
 ---
 
 ## Troubleshooting
+
+### Site showing blank page?
+- **If accessing via GitHub Pages subdomain** (`qalfredo.github.io/personalwebsite/`):
+  - Make sure the workflow uses base path `/personalwebsite/` (currently configured)
+  - Push the latest changes and wait for deployment to complete
+  - Hard refresh the page (Ctrl+Shift+R or Cmd+Shift+R)
+  
+- **If accessing via custom domain** (`alfredoquintana.com`):
+  - Make sure the workflow uses base path `/` (change after DNS is configured)
+  - Verify DNS records are correct
+  - Wait for DNS propagation (can take 24-48 hours)
 
 ### Site not loading?
 - Check GitHub Actions tab for build errors
