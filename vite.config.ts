@@ -8,7 +8,14 @@ export default defineConfig(({ mode }) => {
   // Get base path from environment variable or default to '/'
   // For GitHub Pages, set this to your repository name (e.g., '/personalwebsite/')
   // For custom domain, use '/'
-  const base = process.env.VITE_BASE_PATH || '/';
+  let base = process.env.VITE_BASE_PATH || '/';
+  // Ensure base path starts with '/' and ends with '/'
+  if (!base.startsWith('/')) {
+    base = '/' + base;
+  }
+  if (base !== '/' && !base.endsWith('/')) {
+    base = base + '/';
+  }
 
   return {
     base,

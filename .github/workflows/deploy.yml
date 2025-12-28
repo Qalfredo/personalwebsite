@@ -37,7 +37,11 @@ jobs:
           # Once custom domain (alfredoquintana.com) is configured and working,
           # change this back to '/' for custom domain
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
-        run: npm run build
+        run: |
+          echo "Building with base path: $VITE_BASE_PATH"
+          npm run build
+          echo "Build complete. Checking index.html..."
+          head -20 dist/index.html || echo "index.html not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
