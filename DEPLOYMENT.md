@@ -73,50 +73,61 @@ Before proceeding, I need to know:
 - **Where is your domain registered?** (e.g., Namecheap, GoDaddy, Google Domains, etc.)
 - **Do you have access to DNS settings?** (Yes/No)
 
-### 3.2 Create CNAME File
-Once you provide the domain, I'll create a `CNAME` file in the `public/` folder with your domain name.
+### 3.2 CNAME File Created ✅
+The `CNAME` file has been created in the `public/` folder with `alfredoquintana.com`
 
 ### 3.3 Update GitHub Pages Settings
 1. In your repository, go to **Settings** → **Pages**
-2. Under **Custom domain**, enter your domain (e.g., `alfredoquintana.com`)
+2. Under **Custom domain**, enter: `alfredoquintana.com`
 3. Check **Enforce HTTPS** (recommended)
+4. Click **Save**
+5. Wait a few minutes for GitHub to verify the domain
 
-### 3.4 Configure DNS Records
-You'll need to add DNS records at your domain registrar:
+### 3.4 Configure DNS Records in GoDaddy
 
-**Option A: Apex Domain (alfredoquintana.com)**
-- Type: `A`
-- Name: `@` (or leave blank)
-- Value: `185.199.108.153`
-- TTL: 3600 (or default)
+**For alfredoquintana.com (Apex Domain):**
 
-- Type: `A`
-- Name: `@` (or leave blank)
-- Value: `185.199.109.153`
-- TTL: 3600 (or default)
+1. Log in to your GoDaddy account
+2. Go to **My Products** → Click **DNS** next to `alfredoquintana.com`
+3. You'll see a list of DNS records. **Add these 4 A records:**
 
-- Type: `A`
-- Name: `@` (or leave blank)
-- Value: `185.199.110.153`
-- TTL: 3600 (or default)
+   **Record 1:**
+   - Type: `A`
+   - Name: `@` (or leave blank/empty)
+   - Value: `185.199.108.153`
+   - TTL: `600` (or 1 hour)
 
-- Type: `A`
-- Name: `@` (or leave blank)
-- Value: `185.199.111.153`
-- TTL: 3600 (or default)
+   **Record 2:**
+   - Type: `A`
+   - Name: `@` (or leave blank/empty)
+   - Value: `185.199.109.153`
+   - TTL: `600` (or 1 hour)
 
-**Option B: www Subdomain (www.alfredoquintana.com)**
-- Type: `CNAME`
-- Name: `www`
-- Value: `YOUR_USERNAME.github.io`
-- TTL: 3600 (or default)
+   **Record 3:**
+   - Type: `A`
+   - Name: `@` (or leave blank/empty)
+   - Value: `185.199.110.153`
+   - TTL: `600` (or 1 hour)
 
-**Option C: Both (Recommended)**
-- Add all 4 A records for apex domain
-- Add CNAME record for www subdomain
+   **Record 4:**
+   - Type: `A`
+   - Name: `@` (or leave blank/empty)
+   - Value: `185.199.111.153`
+   - TTL: `600` (or 1 hour)
 
-### 3.5 Update Workflow for Custom Domain
-Once you provide the domain, I'll update the GitHub Actions workflow to use base path `/` instead of the repository name.
+4. **Optional: Add www subdomain (CNAME)**
+   - Type: `CNAME`
+   - Name: `www`
+   - Value: `YOUR_USERNAME.github.io` (replace with your GitHub username)
+   - TTL: `600` (or 1 hour)
+
+5. **Remove any existing A records** that point to other IPs (if any)
+6. **Save** all changes
+
+**Note:** In GoDaddy, if the Name field shows "@" or is empty, that means it's for the root domain (alfredoquintana.com)
+
+### 3.5 Workflow Updated ✅
+The GitHub Actions workflow has been updated to use base path `/` for custom domain (alfredoquintana.com)
 
 ### 3.6 Wait for DNS Propagation
 - DNS changes can take 24-48 hours to propagate
