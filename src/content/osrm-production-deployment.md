@@ -263,7 +263,7 @@ Three things you can take from this:
 
 ### Companion resources
 
-- **GitHub repo:** [github.com/qalfredo/osrm-production-deployment](https://github.com/qalfredo/osrm-production-deployment), the complete deployment setup: Docker Compose, data pipeline, Python client, and both Jupyter notebooks. If you want to deploy OSRM for your own region, the only thing you need to change is the Geofabrik download URL. Every country has an extract.
+- **GitHub repo:** [github.com/Qalfredo/osrm-production-deploy-and-math](https://github.com/Qalfredo/osrm-production-deploy-and-math), the complete deployment setup: Docker Compose, data pipeline, Python client, and both Jupyter notebooks. If you want to deploy OSRM for your own region, the only thing you need to change is the Geofabrik download URL. Every country has an extract.
 - **Notebook 01:** `01_local_deploy_walkthrough.md`, full local deployment guide, step-by-step
 - **Notebook 02:** `02_osrm_math_graphs.ipynb`, Dijkstra and Contraction Hierarchies, visualized with NetworkX
 - **Notebook 03:** `03_distance_comparison.ipynb`, OSRM vs Google Maps, accuracy and cost side-by-side

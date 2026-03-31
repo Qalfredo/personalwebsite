@@ -6,15 +6,15 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Alfredo Quintana</p>
           <div className="flex items-center gap-6">
             <a 
-              href="https://twitter.com" 
+              href="https://x.com/alfredoq14" 
               target="_blank" 
               rel="noopener noreferrer"
               className="link-underline"
             >
-              Twitter
+              X
             </a>
             <a 
-              href="https://github.com" 
+              href="https://github.com/Qalfredo" 
               target="_blank" 
               rel="noopener noreferrer"
               className="link-underline"
