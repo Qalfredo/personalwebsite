@@ -1,3 +1,5 @@
+import osrmProductionArticle from "@/content/osrm-production-deployment.md?raw";
+
 export interface Project {
   slug: string;
   title: string;
@@ -8,6 +10,15 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "osrm-production-deployment",
+    title: "How We Cut Routing Costs by ~99% by Deploying OSRM",
+    excerpt:
+      "A production guide to replacing Google Maps Distance Matrix with a self-hosted OSRM stack for ride-hailing workloads at scale.",
+    content: osrmProductionArticle,
+    date: "March 2026",
+    category: "Data Engineering",
+  },
   {
     slug: "practical-llm-applications",
     title: "Practical LLM Applications Beyond Chatbots",
@@ -45,4 +56,3 @@ These are the problems worth solving.
 export const getProjectBySlug = (slug: string): Project | undefined => {
   return projects.find((p) => p.slug === slug);
 };
-
