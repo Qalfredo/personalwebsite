@@ -70,7 +70,7 @@ const About = () => {
               alfredo.quintana.14@gmail.com
             </a>
             <a 
-              href="https://x.com/alfredoq14" 
+              href="https://x.com/qalfredoai"
               target="_blank"
               rel="noopener noreferrer"
               className="block text-muted-foreground link-underline w-fit"

@@ -6,7 +6,7 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Alfredo Quintana</p>
           <div className="flex items-center gap-6">
             <a 
-              href="https://x.com/alfredoq14" 
+              href="https://x.com/qalfredoai"
               target="_blank" 
               rel="noopener noreferrer"
               className="link-underline"
