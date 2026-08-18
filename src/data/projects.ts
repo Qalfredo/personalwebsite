@@ -1,3 +1,4 @@
+import ultravioletaArticle from "@/content/ultravioleta-fraud-detection.md?raw";
 import osrmProductionArticle from "@/content/osrm-production-deployment.md?raw";
 
 export interface Project {
@@ -10,6 +11,15 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "ultravioleta-fraud-detection",
+    title: "Ultravioleta: Making Invisible Fraud Visible",
+    excerpt:
+      "How our team replaced a brittle rule-based heuristic with a real-time machine learning system at Ridery — and why the hardest part was never the model.",
+    content: ultravioletaArticle,
+    date: "August 2026",
+    category: "Machine Learning",
+  },
   {
     slug: "osrm-production-deployment",
     title: "How We Cut Routing Costs by ~99% by Deploying OSRM",
