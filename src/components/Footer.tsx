@@ -21,9 +21,9 @@ const Footer = () => {
             >
               GitHub
             </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/alfredoquintana/"
+              target="_blank"
               rel="noopener noreferrer"
               className="link-underline"
             >
