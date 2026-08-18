@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ProjectCard from "@/components/ProjectCard";
-import ImpactStrip from "@/components/ImpactStrip";
 import { projects } from "@/data/projects";
 import { usePageMeta } from "@/lib/usePageMeta";
 
@@ -53,21 +52,6 @@ const Index = () => {
               Learn more about me
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="container">
-        <div className="border-t border-border" />
-      </div>
-
-      {/* Impact metrics */}
-      <section className="container py-16 md:py-20">
-        <div
-          className="opacity-0 animate-fade-in"
-          style={{ animationDelay: "250ms" }}
-        >
-          <ImpactStrip />
         </div>
       </section>
 
