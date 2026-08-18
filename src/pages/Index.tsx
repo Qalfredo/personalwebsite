@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ProjectCard from "@/components/ProjectCard";
+import ImpactStrip from "@/components/ImpactStrip";
 import { projects } from "@/data/projects";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 const Index = () => {
+  usePageMeta({
+    title: "Alfredo Quintana — Senior ML & Data Engineer",
+    description:
+      "Senior ML & Data Engineer building production ML and data systems at marketplace scale — pricing, fraud, routing, and payments. Founded a data team 0→8, saved $800K+/year, and now leads the engineering of a fintech product.",
+    path: "/",
+  });
+
   const recentProjects = projects.slice(0, 3);
 
   return (
@@ -11,38 +20,54 @@ const Index = () => {
       {/* Hero Section */}
       <section className="container py-24 md:py-32">
         <div className="max-w-3xl">
-          <h1 
+          <h1
             className="font-serif text-5xl md:text-7xl leading-[1.1] mb-8 opacity-0 animate-fade-in"
             style={{ animationDelay: "0ms" }}
           >
             Alfredo Quintana
           </h1>
-        <p 
+        <p
           className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8 opacity-0 animate-fade-in"
           style={{ animationDelay: "100ms" }}
         >
-          Data professional turning complex information into actionable insights. 
-          I build data systems, explore AI applications, and write about the evolving 
-          landscape of analytics and machine learning.
+          Senior ML &amp; Data Engineer. I build production ML and data systems at
+          marketplace scale — pricing, fraud, routing, and payments. I founded a data
+          team from 0→8, replaced vendor services for <strong className="text-foreground font-semibold">$800K+/year</strong> in
+          savings, and now lead the engineering of a fintech product.
         </p>
-          <div 
+          <div
             className="flex items-center gap-6 opacity-0 animate-fade-in"
             style={{ animationDelay: "200ms" }}
           >
-            <Link 
-              to="/projects" 
+            <Link
+              to="/projects"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:opacity-80 transition-opacity"
             >
               View my projects
               <span aria-hidden>→</span>
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              to="/about"
               className="text-sm link-underline"
             >
               Learn more about me
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="container">
+        <div className="border-t border-border" />
+      </div>
+
+      {/* Impact metrics */}
+      <section className="container py-16 md:py-20">
+        <div
+          className="opacity-0 animate-fade-in"
+          style={{ animationDelay: "250ms" }}
+        >
+          <ImpactStrip />
         </div>
       </section>
 

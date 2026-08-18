@@ -2,6 +2,7 @@ import { Fragment, type ReactNode } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { getProjectBySlug } from "@/data/projects";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 const INLINE_PATTERN =
   /(\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)|`([^`]+)`|\*\*([^*]+)\*\*|\*([^*]+)\*)/g;
@@ -272,6 +273,16 @@ const renderMarkdown = (content: string) => {
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? getProjectBySlug(slug) : undefined;
+
+  usePageMeta({
+    title: project
+      ? `${project.title} — Alfredo Quintana`
+      : "Projects & Writing — Alfredo Quintana",
+    description: project?.excerpt ??
+      "Long-form write-ups on production ML and data engineering at marketplace scale.",
+    path: project ? `/projects/${project.slug}` : "/projects",
+    type: "article",
+  });
 
   if (!project) {
     return <Navigate to="/projects" replace />;
